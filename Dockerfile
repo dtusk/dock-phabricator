@@ -8,7 +8,7 @@ MAINTAINER  Yvonnick Esnault <yvonnick@esnau.lt>
 ENV DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true
 
 # TODO: review this dependency list
-RUN     apt-get clean && apt-get update && apt-get install -y \
+RUN     apt-get update && apt-get install -y \
 	        git \
             apache2 \
             curl \
@@ -36,9 +36,9 @@ RUN     apt-get clean && apt-get update && apt-get install -y \
 # repeatable builds use the latest SHA
 ADD     download.sh /opt/download.sh
 
-ARG PHABRICATOR_COMMIT=79f2e81f38
-ARG ARCANIST_COMMIT=c304c4e045
-ARG LIBPHUTIL_COMMIT=55f554b618
+ARG PHABRICATOR_COMMIT=b469a51
+ARG ARCANIST_COMMIT=9830c93
+ARG LIBPHUTIL_COMMIT=34b6895
 
 WORKDIR /opt
 RUN     bash download.sh phabricator $PHABRICATOR_COMMIT
